@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		Applications/Publishing
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+# Source0-md5:	224459867aef89502e0b3806ec8b4262
 Source1:	%{name}-eps2png.sh
 URL:		http://opensched.sourceforge.net/
 BuildRequires:	autoconf
