@@ -5,7 +5,7 @@ Version:	0.3.8
 Release:	1
 License:	GPL
 Group:		Applications/Publishing
-Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Source1:	%{name}-eps2png.sh
 URL:		http://opensched.sourceforge.net/
 BuildRequires:	autoconf
