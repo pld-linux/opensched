@@ -63,8 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_bindir}/%{name}-eps2png
 
-gzip -9nf README ChangeLog ChangeLog.0 AUTHORS gui/README
-
 rm -f gui/Makefile* $RPM_BUILD_ROOT%{_bindir}/*gif
 
 %clean
@@ -72,6 +70,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/*.html gui examples
+%doc doc/*.html gui examples README ChangeLog ChangeLog.0 AUTHORS
 %attr(755,root,root) %{_bindir}/opensched*
 %{_mandir}/man*/*
