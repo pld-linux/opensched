@@ -50,31 +50,31 @@ obrazów na PNGy.
 %setup -q -n %{name}
 
 %build
-rm -f ./missing
+rm -f missing
 aclocal
+autoheader
 autoconf
 automake -a -c
-autoheader
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
 install %{SOURCE1} $RPM_BUILD_ROOT%{_bindir}/%{name}-eps2png
 
 gzip -9nf README ChangeLog ChangeLog.0 AUTHORS gui/README
-rm -f gui/Makefile*
-rm -f $RPM_BUILD_ROOT%{_bindir}/*gif
+
+rm -f gui/Makefile* $RPM_BUILD_ROOT%{_bindir}/*gif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/*.html
-%doc gui
-%doc examples
+%doc doc/*.html gui examples
 %attr(755,root,root) %{_bindir}/opensched*
 %{_mandir}/man*/*
