@@ -5,12 +5,6 @@ Version:	0.3.8
 Release:	1
 License:	GPL
 Group:		Applications/Publishing
-Group(de):	Applikationen/Publizieren
-Group(es):	Aplicaciones/Editoración
-Group(fr):	Aplicaciones/Édition
-Group(pl):	Aplikacje/Publikowanie
-Group(pt_BR):	Aplicações/Editoração
-Group(ru):	ğÒÉÌÏÖÅÎÉÑ/éÚÄÁÔÅÌØÓÔ×Ï
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Source1:	%{name}-eps2png.sh
 URL:		http://opensched.sourceforge.net/
