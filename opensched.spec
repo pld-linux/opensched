@@ -1,8 +1,8 @@
 Summary:	Opensched is a tool for project management
 Summary(pl):	Opensched jest narzêdziem do zarz±dzania projektami
 Name:		opensched
-Version:	0.3.7
-Release:	3
+Version:	0.3.8
+Release:	1
 License:	GPL
 Group:		Applications/Publishing
 Group(de):	Applikationen/Publizieren
@@ -11,7 +11,6 @@ Group(pl):	Aplikacje/Publikowanie
 Group(pt_BR):	Aplicações/Editoração
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Source1:	%{name}-eps2png.sh
-Patch0:		%{name}-ReverseSchedule.patch
 URL:		http://opensched.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -49,8 +48,7 @@ obrazy w formacie EPS. Pakiet zawiera skrypt do konwertowania tych
 obrazów na PNGy.
 
 %prep
-%setup -q -n %{name}
-%patch0 -p1
+%setup -q
 
 %build
 rm -f missing
