@@ -1,0 +1,12 @@
+diff -Naur opensched/src/sched.cc opensched-p/src/sched.cc
+--- opensched/src/sched.cc	Thu May 25 11:04:02 2000
++++ opensched-p/src/sched.cc	Sat Feb  2 13:01:18 2002
+@@ -795,7 +795,7 @@
+ 
+     ScheduleTasks();
+ 
+-    ReverseScheduleTasks();
++//    ReverseScheduleTasks();
+ 
+     ScheduleMilestones();
+ }
