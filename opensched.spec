@@ -2,7 +2,7 @@ Summary:	Opensched is a tool for project management
 Summary(pl):	Opensched jest narzêdziem do zarz±dzania projektami
 Name:		opensched
 Version:	0.3.7
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Publishing
 Group(de):	Applikationen/Publizieren
@@ -15,6 +15,7 @@ Patch0:		%{name}-ReverseSchedule.patch
 URL:		http://opensched.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	tetex-latex
 Requires:	ghostscript
 Requires:	psutils
 Requires:	awk
