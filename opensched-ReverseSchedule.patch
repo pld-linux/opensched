@@ -1,73 +1,12 @@
-diff -Naur opensched/doc/opensched.1.in opensched-p/doc/opensched.1.in
---- opensched/doc/opensched.1.in	Thu May 25 11:04:01 2000
-+++ opensched-p/doc/opensched.1.in	Sat Feb  2 13:34:43 2002
-@@ -163,6 +163,10 @@
- integer number counting number of working days since the
- project began.  This differs from "dateformat count" above
- since it ignores weekends.
-+.TP
-+.B no_rev_sched
-+Disable reverse task scheduling - it's buggy and sometimes can cause
-+trouble.
+diff -Naur opensched/src/sched.cc opensched-bug/src/sched.cc
+--- opensched/src/sched.cc	Mon Jun 18 21:42:10 2001
++++ opensched-bug/src/sched.cc	Mon Feb  4 21:48:24 2002
+@@ -317,7 +317,7 @@
  
- .SS "Commands to define and relate resources and tasks"
- .TP
-diff -Naur opensched/src/globals.i opensched-p/src/globals.i
---- opensched/src/globals.i	Thu May 25 11:04:01 2000
-+++ opensched-p/src/globals.i	Sat Feb  2 13:32:00 2002
-@@ -17,7 +17,7 @@
- */
- 
- VARIABLE(char *,       date_format,        NULL)
--
-+VARIABLE(int,	       no_rev_sched,	0)
- VARIABLE(time_t,       startTime, 0)
- 
- VARIABLE(int,          finishDay, INVALIDDAYNO)
-diff -Naur opensched/src/loadfile.cc opensched-p/src/loadfile.cc
---- opensched/src/loadfile.cc	Thu May 25 11:04:01 2000
-+++ opensched-p/src/loadfile.cc	Sat Feb  2 13:28:16 2002
-@@ -397,6 +397,10 @@
-     date_format = strdup(format);
- }
- 
-+void Project::DisableRevSched()
-+{
-+    no_rev_sched = 1;
-+}
- 
- void Project::checkComplete()
- {
-@@ -801,6 +805,8 @@
- 	     mReporter.tex_cost_report = strdup(words[1]);
- 	else if ( ( strcasecmp(words[0],"dateformat") == 0 ) && ( Nwords == 2 ) )
- 	    mProject.SetDateFormat(words[1]);
-+	else if ( ( strcasecmp(words[0],"no_rev_sched") == 0) && ( Nwords == 1 ) )
-+	    mProject.DisableRevSched();
- 	else if ( ( strcasecmp(words[0],"tg_tasklabel") == 0 ) && ( Nwords == 2 ) )
- 	     mReporter.tg_tasklabel = atoi(words[1]);
- 	else if ( ( strcasecmp(words[0],"tg_left") == 0 ) && ( Nwords == 2 ) )
-diff -Naur opensched/src/project.h opensched-p/src/project.h
---- opensched/src/project.h	Fri Jun 22 14:04:49 2001
-+++ opensched-p/src/project.h	Sat Feb  2 13:28:33 2002
-@@ -110,6 +110,7 @@
-     void AddStartNetworkY(char *ystr);
-     void AddFinishNetworkY(char *ystr);
-     void SetDateFormat( char * format );
-+    void DisableRevSched ();
-     void SortTasks(bool tg_sortbyresource);
- 
-     char *sStartDay() { return days[0].s; };
-diff -Naur opensched/src/sched.cc opensched-p/src/sched.cc
---- opensched/src/sched.cc	Thu May 25 11:04:02 2000
-+++ opensched-p/src/sched.cc	Sat Feb  2 13:32:32 2002
-@@ -795,7 +795,8 @@
- 
-     ScheduleTasks();
- 
--    ReverseScheduleTasks();
-+    if (!no_rev_sched)
-+	ReverseScheduleTasks();
- 
-     ScheduleMilestones();
- }
+     if ( t->block() )
+     {
+-	while ( ! r->reverseIsAvailable(tfinish-t->remaining+1, tfinish) )
++	while ( ! r->reverseIsAvailable(tfinish-t->rremaining+1, tfinish) )
+ 	    --tfinish;
+ 	ReverseBookResource(t, NULL, r, tfinish-t->rremaining+1, tfinish,
+ 			    TimeBlock::AUTO_SCHEDULE);
