@@ -1,5 +1,5 @@
 Summary:	Opensched is a tool for project management
-Summary(pl):	Opensched jest narzêdziem do zarz±dzania projektami
+Summary(pl.UTF-8):   Opensched jest narzÄ™dziem do zarzÄ…dzania projektami
 Name:		opensched
 Version:	0.3.8
 Release:	1
@@ -31,18 +31,18 @@ HTML, and TeX formats. The Gantt charts and network diagrams are
 generated directly as EPS drawings. The package contains a routine to
 convert these to PNGs.
 
-%description -l pl
-Opensched jest narzêdziem do zarz±dzania projektami. Przyjmuje jako
-wej¶cie plik opisuj±cy projekt i generuje:
+%description -l pl.UTF-8
+Opensched jest narzÄ™dziem do zarzÄ…dzania projektami. Przyjmuje jako
+wejÅ›cie plik opisujÄ…cy projekt i generuje:
 
 - tekstowy opis wygenerowanego planu przebiegu projektu,
 - wykresy Gantta,
-- grafy zale¿no¶ci
+- grafy zaleÅ¼noÅ›ci
 
-Tekstowy opis mo¿e byæ generowany w jednym lub wiêcej z formatów:
-tekst, HTML, TeX. Wykresy Gantta i grafy zale¿no¶ci s± generowane jako
+Tekstowy opis moÅ¼e byÄ‡ generowany w jednym lub wiÄ™cej z formatÃ³w:
+tekst, HTML, TeX. Wykresy Gantta i grafy zaleÅ¼noÅ›ci sÄ… generowane jako
 obrazy w formacie EPS. Pakiet zawiera skrypt do konwertowania tych
-obrazów na PNGy.
+obrazÃ³w na PNGy.
 
 %prep
 %setup -q
