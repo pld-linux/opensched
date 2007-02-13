@@ -1,5 +1,5 @@
 Summary:	Opensched is a tool for project management
-Summary(pl.UTF-8):   Opensched jest narzędziem do zarządzania projektami
+Summary(pl.UTF-8):	Opensched jest narzędziem do zarządzania projektami
 Name:		opensched
 Version:	0.3.8
 Release:	1
